@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import ToDoLists from './ToDoLists'
 
@@ -11,8 +12,10 @@ upInputText(event.target.value) //fetch the value from input
 }
 const addList=()=>{
   upfetchtext((oldItems)=>{
-   
-     return [...oldItems,inputText]  //stored lists in array,here olditems are prev value and inputtext is last value
+      
+      const all= [...oldItems,inputText] //v1.0.1
+      return [ ...new Set(all)] // delete duplicate value
+        //stored lists in array,here olditems are prev value and inputtext is last value
   }) 
   upInputText('')
 }
