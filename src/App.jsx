@@ -1,10 +1,13 @@
 
 import React, { useState } from 'react'
 import ToDoLists from './ToDoLists'
+import AddIcon from '@material-ui/icons/Add';
+import Clock from 'react-digital-clock';
+
+
 
 const App=()=>{
-
-const [inputText,upInputText]=useState('')
+const [inputText,upInputText]=useState('') 
 const [fetchText,upfetchtext]=useState([]) //stored lists in a array
 
 const inputEvent=(event)=>{
@@ -34,9 +37,10 @@ const deleteItems=(id)=>{
         <div className='center_div'>
         <br/>
         <h1>ToDo App</h1>
+        <h1><Clock/></h1>
         <br/>
         <input type='text' placeholder='Task' onChange={inputEvent} value={inputText}/>
-        <button onClick={addList}>+</button>
+       <button onClick={addList}><AddIcon/> </button>
         <ol>
             {fetchText.map((listValue,index)=>{
              return  <ToDoLists
@@ -52,5 +56,4 @@ const deleteItems=(id)=>{
     </>
     )
 }
-
 export default App
